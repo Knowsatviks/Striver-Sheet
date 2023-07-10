@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+pair<int,int> missingAndRepeating(vector<int> &nums, int n)
+{
+	vector<int>hash(n+1,0);
+
+	for(auto it:nums){
+		hash[it]++;
+	}
+
+	int repeat=-1;
+	int missing=-1;
+
+	for(int i=1;i<=n;i++){
+		if(hash[i]==2)
+		repeat=i;
+
+		if(hash[i]==0){
+			missing=i;
+		}
+
+		if(repeat!=-1  && missing!=-1)
+		break;
+	}
+
+	return { missing, repeat};
+	
+	
+}
