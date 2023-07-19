@@ -1,0 +1,22 @@
+ void calsum(int index, int sum, vector<int>&arr,vector<int>&es, int N){
+        if(index==N){
+            es.push_back(sum);
+            return;
+        }
+        
+        //pick the index
+        calsum(index+1, sum+arr[index], arr, es, N);
+        
+        //Not pick the index
+        
+        calsum(index+1, sum, arr, es, N);
+    }
+    vector<int> subsetSums(vector<int>&arr, int N)
+    {
+        // Write Your Code here
+        vector<int>res;
+        calsum(0,0,arr, res, N);
+        
+        return res;
+    
+    }
